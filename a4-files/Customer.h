@@ -14,12 +14,27 @@ using namespace std;
 
 class Customer {
 public:
-	Customer(string,char,int);
+	Customer();
+	Customer(const Customer& customer);
+	Customer(string lastName,char firstInitial,int balance);
+	string getLastName();
+	char getFirstInitial();
+	int getBalance();
+	void setBalance(int x);
+	bool operator< (const Customer& c) const;
+	bool operator<= (const Customer& c) const;
+	bool operator> (const Customer& c) const;
+	bool operator>= (const Customer& c) const;
+	bool operator== (const Customer& c) const;
+	bool operator!= (const Customer& c) const;
+	~Customer();
 
 
 private:
 	friend ostream& operator<<(ostream & os,  Customer & c);
-
+	string _lastName;
+	char _firstInitial;
+	int _balance;
 };
 
 #endif /* CUSTOMER_H_ */
