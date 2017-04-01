@@ -12,10 +12,27 @@ Customer::Customer(){
 	_firstInitial = '\0';
 	_balance = 0;
 }
+Customer::Customer(const Customer& other){
+	_lastName = other._lastName;
+	_firstInitial = other._firstInitial;
+	_balance = other._balance;
+}
 Customer::Customer(string lastName,char firstInitial,int balance){
 	_lastName = lastName;
 	_firstInitial = firstInitial;
 	_balance = balance;
+}
+string Customer::getLastName(){
+	return _lastName;
+}
+char Customer::getFirstInitial(){
+	return _firstInitial;
+}
+int Customer::getBalance(){
+	return _balance;
+}
+void Customer::setBalance(int x){
+	_balance = x;
 }
 bool Customer::operator< (const Customer& c) const{
 	if (this->_lastName > c._lastName)
